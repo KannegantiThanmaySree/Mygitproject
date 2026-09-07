@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>FRONTEND TEST</title>
+<style>
+  body {
+   text-align: center;
+   margin-top: 50px;
+   }
+    
+.counter {
+   margin: 20px;
+   padding: 10px;
+   border: 2px solid;
+   width: 100px;
+   display: inline-block;
+   }
+    
+.button {
+   margin: 5px;
+   padding: 10px 20px;
+   }
+
+</style>
+</head>
+<body>
+     <h2>Interactive Counter</h2>
+
+
+  <div id="counter">0</div>
+  <br>
+  <button onclick="changeCounter(-1)">-1</button>
+  <button onclick="resetCounter()">Reset</button>
+  <button onclick="changeCounter(1)">+1</button>
+
+<script>
+   let count = 0;
+   function changeCounter(value) {
+     count += value;
+     document.getElementById("counter").textContent = count;
+    }
+
+   function resetCounter() {
+     count = 0;
+     document.getElementById("counter").textContent = count;
+   }
+</script>
+</body>
+</html>

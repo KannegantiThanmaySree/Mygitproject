@@ -1,0 +1,91 @@
+<html>
+<head>
+<form onsubmit="return validateform()">
+<title>Login Validate Form</title>
+</head>
+<body>
+
+<div>
+        <form onsubmit="return validateform()">
+        <center><h2>Login Validate Form</h2></center>
+     
+        <center>
+        <br>
+        <label>USERNAME:</label>
+        <input type="text" id="uname" placeholder="Enter username">
+        </br>
+
+        <span id="uerror"></span>
+        <br>
+
+        <br>
+        <label>PASSWORD:</label>
+        <input type="password" id="pass" placeholder="Enter password">
+        </br>
+
+        <span id="perror"></span>
+        <br>
+
+        <input type="submit" value="Login">
+        </center>
+
+</form>
+</div>
+
+<script>
+
+function validateform()
+{
+    let unm = document.getElementById("uname").value;
+    let pwd = document.getElementById("pass").value;
+
+    let uerr = document.getElementById("uerror");
+    let perr = document.getElementById("perror");
+
+    let valid = true;
+
+
+    uerr.innerHTML = "";
+    perr.innerHTML = "";
+
+    
+    if (unm === "")
+    {
+        uerr.innerHTML = "Enter username";
+        valid = false;
+    }
+    else if (!unm.includes("@"))
+    {
+        uerr.innerHTML = "Enter a valid email ID";
+        valid = false;
+    }
+
+
+    if (pwd === "")
+    {
+        perr.innerHTML = "Enter password";
+        valid = false;
+    }
+    else if (pwd.length < 8)
+    {
+        perr.innerHTML = "Password should have at least 8 characters";
+        valid = false;
+    }
+    else if(pwd.match(/[0-9]/))
+    {
+        perr.innerHTML = "Password should contain at least one number";
+        valid = false;
+    }
+
+   
+    if (valid)
+    {
+        alert("Login successful");
+    }
+
+    return valid;
+}
+
+</script>
+</body>
+</html>
